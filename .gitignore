@@ -1,2 +1,5 @@
 .idea/
 IFT3913-TP4.iml
+Rapport.*
+!Rapport.tex
+!Rapport.pdf
