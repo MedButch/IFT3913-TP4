@@ -15,7 +15,7 @@ Zi Hang Yin 20252023}
 \section{Tests boîte noire}
 
 Pour effectuer les tests de boîte noire d'après la spécification, nous avons besoin de 3 types de données: le montant ($M$), la devise originale ($D_o$) et la devise vers laquelle on veut convertir ($D_c$).
-Il faut ensuite trouver les limites de ces données et en faire les permutations pour obtenir nos classes d'équivalence.
+Il faut ensuite trouver les limites de ces données et en faire les permutations pour obtenir nos donnéees du jeu de test.
 
 $$M_1 = \{m < 0\}$$
 $$M2 = \{0 \leq m \leq 1 000 000\}$$
@@ -28,7 +28,14 @@ $$D_2 = \overline{D_1}$$
 
 Cela nous donne un jeu de test comme suit
 
-$$T = $$
+$$T = \{(M, D_o, D_c)\}$$
+$$= \{(-5000, USD, CAD), (-1, CAD, GBP), (0, GBP, EUR), (500000, EUR, CHF),$$
+$$(1000000, CHF, AUD), (1000001, AUD, USD), (1234567890, CAD, USD),$$
+$$(7890, PES, NZD), (567, FRC, USD), (98765, CAD, MRK), (12345, CAD, CAD)\}$$
+
+Les valeurs sont choisies de manière à représenter les valeurs typiques et les bornes du montant à échanger, tout en ayat des valeurs de dévises valides.
+Ensuite, 3 cas représentant les permutations de dévises non valides.
+Finalement, nous avons rajouter un cas où on convertit d'une dévise à elle-même.
 
 \section{Tests boîte blanche}
 
