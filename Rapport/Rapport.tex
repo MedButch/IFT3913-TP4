@@ -34,8 +34,18 @@ $$(1000000, CHF, AUD), (1000001, AUD, USD), (1234567890, CAD, USD),$$
 $$(7890, PES, NZD), (567, FRC, USD), (98765, CAD, MRK), (12345, CAD, CAD)\}$$
 
 Les valeurs sont choisies de manière à représenter les valeurs typiques et les bornes du montant à échanger, tout en ayat des valeurs de dévises valides.
-Ensuite, 3 cas représentant les permutations de dévises non valides.
-Finalement, nous avons rajouter un cas où on convertit d'une dévise à elle-même.
+Ensuite, 3 cas représentant les permutations de dévises non-valides.
+Finalement, nous avons rajouter un cas où on convertit d'une dévise à elle-même, où on devrait retrouver la même valeur.
+
+Mais cela ne s'applique qu'au cas de \textit{MainWindow.convert}.
+Pour \textit{Currency.convert}, c'est simplement $M$ et le taux d'échange $T_e$ qui sont nécessaire.
+
+Donc pour \textit{Currency.convert}, le jeu de donnée sera
+
+$$T = \{(M, T_e\})$$
+$$= \{(-5000, 1.25), (-1, 1.25), (0, 1.25), (500000, 1.25), (1000000, 1.25), (1000001, 1.25), (1234567890, 1.25)\}$$
+
+Pour tout les cas non-valides, on s'attend à une valeur indiquant une erreur, par exemple -1.
 
 \section{Tests boîte blanche}
 
