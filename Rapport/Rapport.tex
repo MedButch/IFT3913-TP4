@@ -36,6 +36,8 @@ $$(7890, PES, NZD), (567, FRC, USD), (98765, CAD, MRK), (12345, CAD, CAD)\}$$
 Les valeurs sont choisies de manière à représenter les valeurs typiques et les bornes du montant à échanger, tout en ayat des valeurs de dévises valides.
 Ensuite, 3 cas représentant les permutations de dévises non-valides.
 Finalement, nous avons rajouter un cas où on convertit d'une dévise à elle-même, où on devrait retrouver la même valeur.
+Pour les valeurs dont on s'attend à des bons résultats, soient $(500000, EUR, CHF)$ et $(1000000, CHF, AUD)$, les valeurs convertient ont été pris d'après l'outil d'échange de Google en date du 7 décembre 2023.
+Les valeurs obtenues sont respectivement 472,197.50 et 1,728,866.67.
 
 Mais cela ne s'applique qu'au cas de \textit{MainWindow.convert}.
 Pour \textit{Currency.convert}, c'est simplement $M$ et le taux d'échange $T_e$ qui sont nécessaire.
