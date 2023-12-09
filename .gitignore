@@ -5,3 +5,4 @@ Rapport.*
 !Rapport.pdf
 lib/
 *.bash
+out/

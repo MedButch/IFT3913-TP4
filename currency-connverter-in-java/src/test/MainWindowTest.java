@@ -10,11 +10,10 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainWindowTest {
-    private static ArrayList<Currency> currencies;
 
-    @BeforeAll
-    ArrayList<Currency> currencies = Currency.init();
+    private static final ArrayList<Currency> currencies = Currency.init();
 
+    //Tests boîte noire
     @Test
     void convert(){
         assertEquals(-1, MainWindow.convert("USD", "CAD", currencies, -5000.00));
@@ -28,12 +27,12 @@ class MainWindowTest {
         assertEquals(-1, MainWindow.convert("FRC", "USD", currencies, 567.00));
         assertEquals(-1, MainWindow.convert("CAD", "MRK", currencies, 12_345.00));
         assertEquals(12_435.00, MainWindow.convert("CAD", "CAD", currencies, 12_345.00));
-
     }
 
+    //Tests boîte blanche
     @Test
     void convertValidCurrencies() {
-        assertEquals(472_197.50, MainWindow.convert("EUR", "CHF", currencies, 500_000.00));
+        assertEquals(472_197.50, MainWindow.convert("Euro", "Swiss Franc", currencies, 500_000.00));
         assertEquals(1_728_866.67, MainWindow.convert("CHF", "AUD", currencies, 1_000_000.00));
         // Autres combinaisons valides
         assertEquals(1000.00, MainWindow.convert("USD", "USD", currencies, 1000.00));
