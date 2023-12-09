@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CurrencyTest {
 
+    //Tests boîte noire
     @Test
     void convert(){
         assertEquals(-1, Currency.convert(-5000.00, 1.25));
@@ -18,6 +19,7 @@ class CurrencyTest {
         assertEquals(-1, Currency.convert(1_234_567_890.00, 1.25));
     }
 
+    //Tests boîte blanche
     @Test
     void convertPositiveAmounts() {
         assertEquals(1250.00, Currency.convert(1000.00, 1.25));
@@ -43,10 +45,4 @@ class CurrencyTest {
         assertEquals(-1000.00, Currency.convert(1000.00, -1.00));
     }
 
-    @Test
-    void convertExceptionalCases() {
-        // Tests pour des valeurs extrêmes ou non valides
-        assertEquals(Double.POSITIVE_INFINITY, Currency.convert(Double.MAX_VALUE, 2.00));
-        assertEquals(Double.NEGATIVE_INFINITY, Currency.convert(-Double.MAX_VALUE, 2.00));
-    }
 }

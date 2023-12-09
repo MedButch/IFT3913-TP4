@@ -51,4 +51,95 @@ Pour tout les cas non-valides, on s'attend à une valeur indiquant une erreur, p
 
 \section{Tests boîte blanche}
 
+Les deux méthodes choisis: 
+\begin{enumerate}
+    \item Currency.convert()
+    \item MainWindow.convert()
+\end{enumerate}
+Concernant les 5 critères de sélections, dont 
+\begin{enumerate}
+    \item couverture des instructions
+    \item couverture des arcs du graphe de flot de contrôle
+    \item couverture des chemins indépendants du graphe de flot de contrôle
+    \item couverture des conditions
+    \item couverture des i-chemins
+\end{enumerate}
+
+seulement le premier \textit{fait du sens} pour Currency, mais tout s'applique au MainWindow, mais ils finissent par tout même un peu se ressembler. Voici les détails:
+
+
+
+
+\subsection{Pour Currency.convert()}
+\subsubsection{Couverture des instructions:}
+
+\begin{itemize}
+    \item Tester avec un montant positif et un taux de change positif.
+    \item Tester avec un montant nul.
+    \item Tester avec un montant négatif.
+\end{itemize}
+
+\subsubsection{Couverture des arcs du graphe de flot de contrôle:}
+\begin{itemize}
+    \item \textit{Ne fait pas de sens} car il est identique à la couverture des instructions étant donné il n'y a pas de branches.
+\end{itemize}
+
+\subsubsection{Couverture des chemins indépendants du graphe de flot de contrôle:}
+\begin{itemize}
+    \item \textit{Ne fait pas de sens} car il n'y a pas de chemins indépendants.
+\end{itemize}
+
+\subsubsection{Couverture des conditions:}
+\begin{itemize}
+    \item \textit{Ne fait pas de sens} car il n'y a pas d'instructions conditionnelles.
+\end{itemize}
+
+\subsubsection{Couverture des i-chemins:}
+\begin{itemize}
+    \item \textit{Ne fait pas de sens} car il n'y a pas de chemins indépendants.
+\end{itemize}
+
+\subsection{Pour MainWindow.convert()}
+\subsubsection{Couverture des instructions:}
+C'est simple:
+\begin{itemize}
+    \item Tester avec des noms de devises valides et un montant positif.
+    \item Tester avec un nom de devise invalide.
+    \item Tester avec un montant nul.
+    \item Tester avec un montant négatif.
+\end{itemize}
+
+\subsubsection{Couverture des arcs du graphe de flot de contrôle:}
+Pour chaque currency: un cas de teste où c'est sur la liste ou ce n'est pas sur la liste. Ça finit par se resembler au partie 3, mais l'interprétation est différente. Dont pour tester le convertisseur, on concentre sur les vérifications des devises (première et deuxième). Chaque devise a un chemin valide et un invalide dans le flot de contrôle. Les tests devraient couvrir ces scénarios pour explorer tous les arcs potentiels liés à ces vérifications, dans de cas ci, 3 cas:
+\begin{itemize}
+    \item devises valides
+    \item une devise invalide
+    \item deux devises invalides.
+\end{itemize}
+
+\subsubsection{Couverture des chemins indépendants du graphe de flot de contrôle:}
+Ça finit par se resembler au partie 2, mais l'interprétation est différente, car c'est essentiellement des chemins indépendents. 3 cas:
+\begin{itemize}
+    \item Chemin avec deux devises valides et un montant positif.
+    \item Chemin avec une devise invalide.
+    \item Chemin avec deux devises invalides.
+\end{itemize}
+
+\subsubsection{Couverture des conditions:}
+\begin{itemize}
+    \item Condition avec un montant de 0.
+\end{itemize}
+J'aurais aimé faire un condition avec Inf mais ça ne passe pas.
+
+\subsubsection{Couverture des i-chemins:}
+Deux cas, qui finissent par ressembler parties 2 et 3:
+\begin{itemize}
+    \item Chemin avec une conversion de devise valide.
+    \item Chemin où la conversion de devise n'est pas possible à cause d'une devise invalide.
+\end{itemize}
+
+
+
+
+
 \end{document}
