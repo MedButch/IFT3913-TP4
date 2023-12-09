@@ -17,4 +17,36 @@ class CurrencyTest {
         assertEquals(-1, Currency.convert(1_000_001.00, 1.25));
         assertEquals(-1, Currency.convert(1_234_567_890.00, 1.25));
     }
+
+    @Test
+    void convertPositiveAmounts() {
+        assertEquals(1250.00, Currency.convert(1000.00, 1.25));
+        assertEquals(2500.00, Currency.convert(2000.00, 1.25));
+    }
+
+    @Test
+    void convertNegativeAmounts() {
+        assertEquals(-1250.00, Currency.convert(-1000.00, 1.25));
+        assertEquals(-2500.00, Currency.convert(-2000.00, 1.25));
+    }
+
+    @Test
+    void convertZeroAmount() {
+        assertEquals(0.00, Currency.convert(0.00, 1.25));
+    }
+
+    @Test
+    void convertVariousExchangeRates() {
+        assertEquals(1000.00, Currency.convert(1000.00, 1.00));  
+        assertEquals(0.00, Currency.convert(1000.00, 0.00));     
+        assertEquals(2000.00, Currency.convert(1000.00, 2.00)); 
+        assertEquals(-1000.00, Currency.convert(1000.00, -1.00));
+    }
+
+    @Test
+    void convertExceptionalCases() {
+        // Tests pour des valeurs extrêmes ou non valides
+        assertEquals(Double.POSITIVE_INFINITY, Currency.convert(Double.MAX_VALUE, 2.00));
+        assertEquals(Double.NEGATIVE_INFINITY, Currency.convert(-Double.MAX_VALUE, 2.00));
+    }
 }

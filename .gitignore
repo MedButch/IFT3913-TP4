@@ -4,3 +4,4 @@ Rapport.*
 !Rapport.tex
 !Rapport.pdf
 lib/
+*.bash
