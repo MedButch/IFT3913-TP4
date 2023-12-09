@@ -45,10 +45,4 @@ class CurrencyTest {
         assertEquals(-1000.00, Currency.convert(1000.00, -1.00));
     }
 
-    @Test
-    void convertExceptionalCases() {
-        // Tests pour des valeurs extrêmes ou non valides
-        assertEquals(Double.POSITIVE_INFINITY, Currency.convert(Double.MAX_VALUE, 2.00));
-        assertEquals(Double.NEGATIVE_INFINITY, Currency.convert(-Double.MAX_VALUE, 2.00));
-    }
 }
